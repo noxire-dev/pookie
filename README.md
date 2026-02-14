@@ -4,7 +4,7 @@
 
 ## Tools
 
-- **[Pulse](/pulse)** — WhatsApp chat analysis for couples. Drop your chat export and get stats on who texts first, love keywords, emoji habits, fun facts, and more. Export as PNG, PDF, or HTML.
+- **[Pulse](/pulse)** — WhatsApp chat analysis for couples. Drop your chat export (.txt or .zip) and get stats on who texts first, love keywords, emoji habits, fun facts, and more. Export as PNG, PDF, or HTML.
 
 More tools (Vibes, Timeline, etc.) coming soon.
 

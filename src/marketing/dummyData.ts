@@ -40,7 +40,7 @@ export const dummyData = {
     },
     {
       title: '100% Private',
-      desc: 'Everything runs on our servers then gets deleted. We never store your chats.',
+      desc: 'Everything runs in your browser. Your data never leaves your device; we never store your chats.',
     },
     {
       title: 'Beautiful Reports',
@@ -49,7 +49,7 @@ export const dummyData = {
   ],
   steps: [
     { step: '01', title: 'Export Chat', desc: 'Open WhatsApp, pick a chat, and export without media.' },
-    { step: '02', title: 'Upload File', desc: 'Drop your .txt file onto Pulse — it takes seconds.' },
+    { step: '02', title: 'Upload File', desc: 'Drop your .txt or .zip export onto Pulse — it takes seconds.' },
     { step: '03', title: 'Get Insights', desc: 'Explore beautiful charts, fun stats, and hidden patterns.' },
   ],
 };

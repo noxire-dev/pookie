@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import type { AnalysisResult, WorkerResponse, ChatSummary } from '../parser/types';
 
 export interface AnalyzerState {
@@ -10,9 +10,29 @@ export interface AnalyzerState {
   error: string | null;
 }
 
-const MAX_RETRIES = 2;
+const MAX_RETRIES = 3;
+
+// Preload worker script on mount so first upload (zip or txt) doesn't hit a cold load
+function useWorkerPreload() {
+  useEffect(() => {
+    const worker = new Worker(
+      new URL('./analyzerWorker.ts', import.meta.url),
+      { type: 'module' }
+    );
+    const onMessage = (e: MessageEvent) => {
+      if (e.data?.type === 'ready') {
+        worker.removeEventListener('message', onMessage);
+        worker.terminate();
+      }
+    };
+    worker.addEventListener('message', onMessage);
+    return () => worker.terminate();
+  }, []);
+}
 
 export function useAnalyzer() {
+  useWorkerPreload();
+
   const [state, setState] = useState<AnalyzerState>({
     status: 'idle',
     progress: 0,
@@ -25,6 +45,7 @@ export function useAnalyzer() {
   const workerRef = useRef<Worker | null>(null);
   const retriesRef = useRef(0);
   const pendingContentRef = useRef<string | null>(null);
+  const startWorkerRef = useRef<(fileContent: string) => void>(() => {});
 
   const startWorker = useCallback((fileContent: string) => {
     if (workerRef.current) {
@@ -75,7 +96,7 @@ export function useAnalyzer() {
             retriesRef.current++;
             worker.terminate();
             workerRef.current = null;
-            startWorker(fileContent);
+            startWorkerRef.current(fileContent);
             return;
           }
           setState({
@@ -99,7 +120,7 @@ export function useAnalyzer() {
         retriesRef.current++;
         worker.terminate();
         workerRef.current = null;
-        startWorker(fileContent);
+        startWorkerRef.current(fileContent);
         return;
       }
       setState({
@@ -115,6 +136,10 @@ export function useAnalyzer() {
       workerRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    startWorkerRef.current = startWorker;
+  }, [startWorker]);
 
   const analyze = useCallback((fileContent: string) => {
     pendingContentRef.current = fileContent;

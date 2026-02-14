@@ -185,6 +185,89 @@ body::after {
   font-weight: 600;
 }
 
+.file-upload-help-wrap {
+  margin-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-upload-help-trigger {
+  padding: 0.4rem 0.75rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.file-upload-help-trigger:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.file-upload-help {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 26rem;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  background: var(--bg-card);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  box-sizing: border-box;
+}
+
+.file-upload-help-intro {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.file-upload-help-steps {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.file-upload-help-steps h4 {
+  color: var(--text);
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.file-upload-help-steps ol {
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.file-upload-help-steps li {
+  margin-bottom: 0.35rem;
+}
+
+.file-upload-help-note {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.upload-error {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(180, 80, 80, 0.15);
+  border: 1px solid rgba(180, 80, 80, 0.4);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
 /* Progress Bar */
 .progress-container {
   max-width: 500px;

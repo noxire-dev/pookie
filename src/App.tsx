@@ -109,12 +109,20 @@ function App() {
     }));
   }, []);
 
+  const [uploadError, setUploadError] = useState<string | null>(null);
+
   const handleFileLoad = (content: string) => {
+    setUploadError(null);
     setNameOverrides({});
     analyze(content);
   };
 
+  const handleUploadError = (message: string) => {
+    setUploadError(message);
+  };
+
   const handleReset = () => {
+    setUploadError(null);
     setNameOverrides({});
     reset();
   };
@@ -140,7 +148,14 @@ function App() {
 
       <main className="app-main">
         {state.status === 'idle' && (
-          <FileUpload onFileLoad={handleFileLoad} />
+          <>
+            {uploadError && (
+              <div className="upload-error" role="alert">
+                {uploadError}
+              </div>
+            )}
+            <FileUpload onFileLoad={handleFileLoad} onError={handleUploadError} />
+          </>
         )}
 
         {state.status === 'analyzing' && (

@@ -780,8 +780,8 @@ const featureIcons = [
 
 const faqs = [
   { q: 'Is this really free?', a: 'Yes, completely free. No hidden charges, no premium tier, no catch.' },
-  { q: 'How do I export my WhatsApp chat?', a: 'Open WhatsApp, go to the chat, tap the three dots, select "Export Chat", choose "Without Media", and save the .txt file.' },
-  { q: 'What happens to my data?', a: 'Your chat file is processed on our servers to generate insights, then permanently deleted. We never store, read, or share your conversations.' },
+  { q: 'How do I export my WhatsApp chat?', a: 'Open WhatsApp, go to the chat, tap the three dots, select "Export Chat", choose "Without Media" (.txt) or "Include media" (.zip). Both work here.' },
+  { q: 'What happens to my data?', a: 'Your chat is processed entirely in your browser. Nothing is sent to our servers; we never store, read, or share your conversations.' },
   { q: 'Does it work with group chats?', a: 'Pulse is designed for 1-on-1 couple chats. Group chats may produce unexpected results.' },
   { q: 'How long does the analysis take?', a: 'Usually a few seconds. Larger chats (100k+ messages) might take a bit longer.' },
 ];
@@ -1058,8 +1058,8 @@ export default function Design2() {
             </div>
             <h2>Your chats stay yours</h2>
             <p>
-              Pulse processes everything server-side, then permanently deletes your data.
-              No storage. No accounts. No tracking. Just insights, then gone.
+              Pulse runs entirely in your browser — your data never leaves your device.
+              No storage. No accounts. No tracking. Just insights.
             </p>
           </div>
         </section>
