@@ -140,10 +140,6 @@ export function analyzeFunStats(chat: ParsedChat): FunStatsResult {
   let currentSender = '';
   let currentStreak = 0;
 
-  // Double-text tracking: track the last message timestamp per sender
-  // A double text = you send again after 5+ min gap AND the other person hasn't replied
-  let lastSenderChangeIdx = 0;
-
   for (let i = 0; i < messages.length; i++) {
     const msg = messages[i];
     const sender = msg.sender;
@@ -239,7 +235,6 @@ export function analyzeFunStats(chat: ParsedChat): FunStatsResult {
       }
       currentSender = sender;
       currentStreak = 1;
-      lastSenderChangeIdx = i;
     }
 
     // ---- Double texting ----

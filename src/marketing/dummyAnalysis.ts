@@ -212,6 +212,7 @@ export const dummyAnalysisResult: AnalysisResult = {
       isMedia: false,
       isCall: false,
       callDurationSeconds: 0,
+      isDeleted: false,
     },
     messageMilestones: [
       { label: '1,000th message', message: null, date: new Date('2022-04-28').getTime(), value: 1000 },
@@ -226,6 +227,7 @@ export const dummyAnalysisResult: AnalysisResult = {
       isMedia: false,
       isCall: false,
       callDurationSeconds: 0,
+      isDeleted: false,
     },
     longestGap: {
       startDate: new Date('2022-07-10').getTime(),
