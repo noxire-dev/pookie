@@ -1,8 +1,8 @@
 import type {
-  ParsedChat,
-  LoveAnalysisResult,
   AffectionKeywordCount,
+  LoveAnalysisResult,
   MonthlyAffection,
+  ParsedChat,
 } from '../parser/types';
 
 // ============================================================
@@ -25,7 +25,7 @@ const LOVE_KEYWORDS: string[] = [
   'benim herşeyim', 'benim her şeyim',
   'sana bayılıyorum', 'çok tatlısın',
   'öpüyorum', 'opuyorum',
-  'sarılmak istiyorum', 'kucaklıyorum',
+  'sarılmak istiyorum', 'kucaklıyorum', 'aşk',
 ];
 
 const PET_NAMES: string[] = [
@@ -39,7 +39,7 @@ const PET_NAMES: string[] = [
   'koçum', 'kocum', 'balım', 'balim',
   'kuşum', 'kusum', 'meleğim', 'melegim',
   'prensesim', 'prensim', 'şekerim', 'sekerim',
-  'pookie', 'ponçik', 'poncik',
+  'pookie', 'ponçik', 'poncik', 'aşk',
 ];
 
 const _d = new Date();

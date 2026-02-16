@@ -14,12 +14,12 @@ import type { ParsedMessage, ParsedChat } from './types';
  * Regex for lines starting with a WhatsApp timestamp.
  * Only used when the fast indexOf check passes.
  *
- * Group 1: date   (e.g. "19/04/2022")
+ * Group 1: date   (e.g. "19/04/2022" or "5.12.2018" — slash or dot)
  * Group 2: time   (e.g. "4:37:03 pm" or "16:37:03")
  * Group 3: rest   (everything after the ] or - separator)
  */
 const MESSAGE_LINE_REGEX =
-  /^\u200e?\[?(\d{1,2}\/\d{1,2}\/\d{2,4}),?\s+(\d{1,2}:\d{2}(?::\d{2})?(?:\s*[apAP][mM])?)\]?\s*[-–]?\s*(.*)/;
+  /^\u200e?\[?(\d{1,2}[\/.]\d{1,2}[\/.]\d{2,4}),?\s+(\d{1,2}:\d{2}(?::\d{2})?(?:\s*[apAP][mM])?)\]?\s*[-–]?\s*(.*)/;
 
 const SENDER_MESSAGE_REGEX = /^([^:]+?):\s([\s\S]*)$/;
 
@@ -87,8 +87,8 @@ function parseCallDuration(text: string): number {
  * Avoids creating a Date object — uses Date.UTC then adjusts.
  */
 function parseDateTimeToEpoch(dateStr: string, timeStr: string): number {
-  // Parse date: DD/MM/YYYY or ambiguous
-  const ds = dateStr;
+  // Parse date: DD/MM/YYYY or DD.MM.YYYY (normalize dots to slashes)
+  const ds = dateStr.replace(/\./g, '/');
   const s1 = ds.indexOf('/');
   const s2 = ds.indexOf('/', s1 + 1);
   const a = +ds.substring(0, s1);
