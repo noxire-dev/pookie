@@ -360,6 +360,23 @@ export default function Hub() {
             <span className="hub-card-tag">live</span>
           </Link>
 
+          {/* Vibes — live */}
+          <Link to="/vibes" className="hub-card hub-fade">
+            <div className="hub-card-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="24" cy="24" r="18" />
+                <path d="M18 20 Q24 28 30 20" />
+                <circle cx="18" cy="16" r="2" fill="currentColor" />
+                <circle cx="30" cy="16" r="2" fill="currentColor" />
+              </svg>
+            </div>
+            <div className="hub-card-name">Vibes</div>
+            <p className="hub-card-desc">
+              For couples: log how you're feeling, see your partner's mood in real time — end-to-end encrypted and totally private.
+            </p>
+            <span className="hub-card-tag">live</span>
+          </Link>
+
           {/* Coming soon #1 */}
           <div className="hub-card coming-soon hub-fade">
             <div className="hub-card-icon">
@@ -372,23 +389,6 @@ export default function Hub() {
             <div className="hub-card-name">Timeline</div>
             <p className="hub-card-desc">
               Build a gorgeous visual timeline of your relationship from photos, screenshots, and chat highlights.
-            </p>
-            <span className="hub-card-tag soon">coming soon</span>
-          </div>
-
-          {/* Coming soon #2 */}
-          <div className="hub-card coming-soon hub-fade">
-            <div className="hub-card-icon">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="24" cy="24" r="18" />
-                <path d="M18 20 Q24 28 30 20" />
-                <circle cx="18" cy="16" r="2" fill="currentColor" />
-                <circle cx="30" cy="16" r="2" fill="currentColor" />
-              </svg>
-            </div>
-            <div className="hub-card-name">Vibes</div>
-            <p className="hub-card-desc">
-              For couples: log what you want to do together, how you're feeling, and keep a shared mood & plans diary — simple and private.
             </p>
             <span className="hub-card-tag soon">coming soon</span>
           </div>

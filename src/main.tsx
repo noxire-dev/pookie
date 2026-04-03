@@ -5,6 +5,8 @@ import App from './App.tsx'
 import Design2 from './marketing/Design2.tsx'
 import DemoPage from './marketing/DemoPage.tsx'
 import Hub from './Hub.tsx'
+import VibesMarketing from './vibes/VibesMarketing.tsx'
+import VibesApp from './vibes/VibesApp.tsx'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
@@ -15,6 +17,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/pulse" element={<Design2 />} />
         <Route path="/pulse/demo" element={<DemoPage />} />
         <Route path="/pulse/app" element={<App />} />
+        <Route path="/vibes" element={<VibesMarketing />} />
+        <Route path="/vibes/app" element={<VibesApp />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
